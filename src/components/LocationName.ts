@@ -3,7 +3,7 @@
 Types of names provided by API:
 
 Type one: "Paris, Ile-de-France, Metropolitan France, France"
-Type two: 
+Type two: "Berlin, Coös County, New Hampshire, 03570, USA"
 
 */
 
