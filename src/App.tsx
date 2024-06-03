@@ -27,7 +27,7 @@ function App() {
       <div className="container d-flex flex-column align-items-center">
         <CitySearch
           onSearchResults={setSearchResult}
-          detailsVisibility={setDetails}
+          detailsVisibility={setSelectedCoordinates}
         />
         {!details && (
           <DisplaySearchResults
@@ -36,7 +36,7 @@ function App() {
             detailsVisibility={setDetails}
           />
         )}
-        {selectedCoordinates && (
+        {selectedCoordinates && !details && (
           <div>
             <h3>{LocationName(selectedCoordinates.city)}</h3>
             <p>Latitude: {selectedCoordinates.latitude}</p>
