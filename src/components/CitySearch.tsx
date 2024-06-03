@@ -4,12 +4,14 @@ import axios, { CanceledError } from "axios";
 
 interface Props {
   onSearchResults: (results: City[]) => void;
+  detailsVisibility: (details: boolean) => void;
 }
 
-const CitySearch = ({ onSearchResults }: Props) => {
+const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchStatus, setSearchStatus] = useState(false);
   const [searchKey, setSearchKey] = useState(0);
+  const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
     if (searchStatus) {
@@ -33,6 +35,8 @@ const CitySearch = ({ onSearchResults }: Props) => {
   const handleSearch = () => {
     setSearchKey((prevKey) => prevKey + 1);
     setSearchStatus(true);
+    setShowDetails(false);
+    detailsVisibility(showDetails);
   };
   return (
     <>

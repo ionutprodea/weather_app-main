@@ -3,10 +3,15 @@ import Card from "./Card";
 
 interface Props {
   searchResults: City[];
-  onDetailsClick: (latitude: string, longitude: string) => void;
+  onDetailsClick: (latitude: string, longitude: string, city: string) => void;
+  detailsVisibility: (details: boolean) => void;
 }
 
-const DisplaySearchResults = ({ searchResults, onDetailsClick }: Props) => {
+const DisplaySearchResults = ({
+  searchResults,
+  onDetailsClick,
+  detailsVisibility,
+}: Props) => {
   const filteredResults = searchResults.filter(
     (city, index, self) =>
       city.class === "boundary" &&
@@ -32,6 +37,7 @@ const DisplaySearchResults = ({ searchResults, onDetailsClick }: Props) => {
                   longitude={city.lon}
                   city={city.display_name}
                   onDetailsClick={onDetailsClick}
+                  detailsVisibility={detailsVisibility}
                 />
               </li>
             ))}

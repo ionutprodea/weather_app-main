@@ -7,17 +7,25 @@ interface Props {
   latitude: string;
   longitude: string;
   city: string;
-  onDetailsClick: (latitude: string, longitude: string) => void;
+  onDetailsClick: (latitude: string, longitude: string, city: string) => void;
+  detailsVisibility: (details: boolean) => void;
 }
 
-const Card = ({ latitude, longitude, city, onDetailsClick }: Props) => {
+const Card = ({
+  latitude,
+  longitude,
+  city,
+  onDetailsClick,
+  detailsVisibility,
+}: Props) => {
   const [currentTemp, setCurrentTemp] = useState(null);
   const [error, setError] = useState("");
   const [showDetails, setShowDetails] = useState(false);
 
   const handleOnClick = () => {
-    setShowDetails(!showDetails);
-    onDetailsClick(latitude, longitude);
+    setShowDetails(true);
+    detailsVisibility(showDetails);
+    onDetailsClick(latitude, longitude, city);
   };
 
   useEffect(() => {
