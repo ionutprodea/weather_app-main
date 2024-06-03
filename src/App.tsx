@@ -25,9 +25,6 @@ function App() {
 
   return (
     <>
-      {selectedCoordinates && (
-        <DetailsCard cityDetails={selectedCoordinates}></DetailsCard>
-      )}
       <div className="container d-flex flex-column align-items-center">
         <CitySearch
           onSearchResults={setSearchResult}
@@ -40,12 +37,8 @@ function App() {
             detailsVisibility={setDetails}
           />
         )}
-        {selectedCoordinates && !details && (
-          <div>
-            <h3>{LocationName(selectedCoordinates.city)}</h3>
-            <p>Latitude: {selectedCoordinates.latitude}</p>
-            <p>Longitude: {selectedCoordinates.longitude}</p>
-          </div>
+        {selectedCoordinates && (
+          <DetailsCard cityDetails={selectedCoordinates}></DetailsCard>
         )}
       </div>
     </>
