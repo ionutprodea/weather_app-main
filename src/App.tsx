@@ -2,7 +2,6 @@ import { useState } from "react";
 import { City } from "./components/City";
 import CitySearch from "./components/CitySearch";
 import DisplaySearchResults from "./components/DisplaySearchResults";
-import LocationName from "./components/LocationName";
 import DetailsCard from "./components/DetailsCard";
 
 function App() {
