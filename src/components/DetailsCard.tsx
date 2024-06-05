@@ -15,14 +15,18 @@ interface Props {
 
 const DetailsCard = ({ cityDetails }: Props) => {
   const [error, setError] = useState("");
+  const [details, setDetails] = useState(null);
   useEffect(() => {
     const controller = new AbortController();
     axios
       .get(
-        `https://api.open-meteo.com/v1/forecast?latitude=${cityDetails.latitude}&longitude=${cityDetails.longitude}&current=temperature_2m${detailsRequest}`,
+        `https://api.open-meteo.com/v1/forecast?latitude=${cityDetails.latitude}&longitude=${cityDetails.longitude}&${detailsRequest}`,
         { signal: controller.signal }
       )
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        setDetails(response.data);
+      })
       .catch((err) => {
         if (err instanceof CanceledError) return;
         setError(err.message);

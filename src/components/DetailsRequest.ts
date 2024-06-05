@@ -1,1 +1,1 @@
-export const detailsRequest = ",relative_humidity_2m,precipitation_probability,precipitation,rain,showers,snowfall,visibility,wind_speed_10m,wind_direction_10m,wind_gusts_10m"
+export const detailsRequest = "current=temperature_2m,relative_humidity_2m,precipitation,rain,showers,snowfall,cloud_cover,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,uv_index_clear_sky_max&timezone=auto"
