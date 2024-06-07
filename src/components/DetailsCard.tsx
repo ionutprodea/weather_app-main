@@ -76,8 +76,8 @@ const DetailsCard = ({ cityDetails }: Props) => {
             </li>
             <li className="list-group-item">
               <div className="d-flex justify-content-between">
-                <p>Daily UV Index:</p>
-                <p>{Math.round(details.daily.uv_index_max[0])} max</p>
+                <p>UV Index:</p>
+                <p>{Math.round(details.hourly.uv_index[0])}</p>
               </div>
             </li>
             <li className="list-group-item">
