@@ -36,7 +36,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
 
   return (
     <>
-      <h2 className="fw-normal mt-5">Current</h2>
+      <h2 className="fw-normal mt-5">{LocationName(cityDetails.city)}</h2>
       {error && <p>{error}</p>}
       {details && (
         <div
@@ -44,7 +44,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
           style={{ maxWidth: "700px" }}
         >
           <div className="d-flex justify-content-between mt-5">
-            <h3 className="fw-normal ms-3">{LocationName(cityDetails.city)}</h3>
+            <h3 className="fw-normal ms-3">Current</h3>
             <h3 className="fw-normal me-3">
               {details.current.temperature_2m}°C
             </h3>
