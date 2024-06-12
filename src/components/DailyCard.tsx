@@ -1,3 +1,5 @@
+import { SunTime } from "./SunTime";
+
 interface Props {
   day: string;
   minTemp: number;
@@ -46,13 +48,13 @@ const DailyCard = ({
           <li className="list-group-item">
             <div className="d-flex justify-content-between">
               <p>Sunrise:</p>
-              <p>{sunRise}</p>
+              <p>{SunTime(sunRise)}</p>
             </div>
           </li>
           <li className="list-group-item">
             <div className="d-flex justify-content-between">
               <p>Sunset:</p>
-              <p>{sunSet}</p>
+              <p>{SunTime(sunSet)}</p>
             </div>
           </li>
           <li className="list-group-item">
