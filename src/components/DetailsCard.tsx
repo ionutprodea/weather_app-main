@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { detailsRequest } from "./DetailsRequest";
 import LocationName from "./LocationName";
 import DailyCard from "./DailyCard";
+import { DayName } from "./DayName";
 
 interface selectedCoordinates {
   latitude: string;
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const DetailsCard = ({ cityDetails }: Props) => {
+  const date = new Date();
   const [error, setError] = useState("");
   const [details, setDetails] = useState<any>(null);
   useEffect(() => {
@@ -126,6 +128,71 @@ const DetailsCard = ({ cityDetails }: Props) => {
           uvIndex={details.daily.uv_index_max[1]}
           wind={details.daily.wind_speed_10m_max[1]}
           gusts={details.daily.wind_gusts_10m_max[1]}
+        />
+      )}
+      {details && (
+        <DailyCard
+          day={DayName(date.getDay() + 2)}
+          minTemp={details.daily.temperature_2m_min[2]}
+          maxTemp={details.daily.temperature_2m_max[2]}
+          sunRise={details.daily.sunrise[2]}
+          sunSet={details.daily.sunset[2]}
+          precipitation={details.daily.precipitation_probability_max[2]}
+          uvIndex={details.daily.uv_index_max[2]}
+          wind={details.daily.wind_speed_10m_max[2]}
+          gusts={details.daily.wind_gusts_10m_max[2]}
+        />
+      )}
+      {details && (
+        <DailyCard
+          day={DayName(date.getDay() + 3)}
+          minTemp={details.daily.temperature_2m_min[3]}
+          maxTemp={details.daily.temperature_2m_max[3]}
+          sunRise={details.daily.sunrise[3]}
+          sunSet={details.daily.sunset[3]}
+          precipitation={details.daily.precipitation_probability_max[3]}
+          uvIndex={details.daily.uv_index_max[3]}
+          wind={details.daily.wind_speed_10m_max[3]}
+          gusts={details.daily.wind_gusts_10m_max[3]}
+        />
+      )}
+      {details && (
+        <DailyCard
+          day={DayName(date.getDay() + 4)}
+          minTemp={details.daily.temperature_2m_min[4]}
+          maxTemp={details.daily.temperature_2m_max[4]}
+          sunRise={details.daily.sunrise[4]}
+          sunSet={details.daily.sunset[4]}
+          precipitation={details.daily.precipitation_probability_max[4]}
+          uvIndex={details.daily.uv_index_max[3]}
+          wind={details.daily.wind_speed_10m_max[3]}
+          gusts={details.daily.wind_gusts_10m_max[3]}
+        />
+      )}
+      {details && (
+        <DailyCard
+          day={DayName(date.getDay() + 5)}
+          minTemp={details.daily.temperature_2m_min[5]}
+          maxTemp={details.daily.temperature_2m_max[5]}
+          sunRise={details.daily.sunrise[5]}
+          sunSet={details.daily.sunset[5]}
+          precipitation={details.daily.precipitation_probability_max[5]}
+          uvIndex={details.daily.uv_index_max[5]}
+          wind={details.daily.wind_speed_10m_max[5]}
+          gusts={details.daily.wind_gusts_10m_max[5]}
+        />
+      )}
+      {details && (
+        <DailyCard
+          day={DayName(date.getDay() + 6)}
+          minTemp={details.daily.temperature_2m_min[6]}
+          maxTemp={details.daily.temperature_2m_max[6]}
+          sunRise={details.daily.sunrise[6]}
+          sunSet={details.daily.sunset[6]}
+          precipitation={details.daily.precipitation_probability_max[6]}
+          uvIndex={details.daily.uv_index_max[6]}
+          wind={details.daily.wind_speed_10m_max[6]}
+          gusts={details.daily.wind_gusts_10m_max[6]}
         />
       )}
     </>
