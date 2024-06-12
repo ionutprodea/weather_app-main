@@ -32,10 +32,11 @@ const Card = ({
     const controller = new AbortController();
     axios
       .get(
-        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m`,
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,is_day,precipitation,rain,showers,snowfall,cloud_cover`,
         { signal: controller.signal }
       )
       .then((result) => {
+        console.log(result.data);
         setCurrentTemp(result.data.current.temperature_2m);
       })
       .catch((err) => {
