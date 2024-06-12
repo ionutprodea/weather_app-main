@@ -25,7 +25,7 @@ const DailyCard = ({
     <>
       <div
         className="container border rounded mt-3 mb-3"
-        style={{ maxWidth: "700px" }}
+        style={{ maxWidth: "600px" }}
       >
         <div className="d-flex justify-content-between mt-5">
           <h3 className="fw-normal ms-3">{day}</h3>

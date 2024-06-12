@@ -39,7 +39,7 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
   };
   return (
     <>
-      <div className="container d-flex  mt-5">
+      <div className="container d-flex  mt-5" style={{ maxWidth: "620px" }}>
         <input
           className="form-control mb-3"
           type="text"
