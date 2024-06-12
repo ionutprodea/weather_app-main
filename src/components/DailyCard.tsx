@@ -24,7 +24,7 @@ const DailyCard = ({
   return (
     <>
       <div
-        className="container border rounded mt-3"
+        className="container border rounded mt-3 mb-3"
         style={{ maxWidth: "700px" }}
       >
         <div className="d-flex justify-content-between mt-5">
@@ -45,13 +45,13 @@ const DailyCard = ({
           </li>
           <li className="list-group-item">
             <div className="d-flex justify-content-between">
-              <p>Sun Rises:</p>
+              <p>Sunrise:</p>
               <p>{sunRise}</p>
             </div>
           </li>
           <li className="list-group-item">
             <div className="d-flex justify-content-between">
-              <p>Sun Sets:</p>
+              <p>Sunset:</p>
               <p>{sunSet}</p>
             </div>
           </li>

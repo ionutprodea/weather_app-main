@@ -2,6 +2,7 @@ import axios, { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import { detailsRequest } from "./DetailsRequest";
 import LocationName from "./LocationName";
+import DailyCard from "./DailyCard";
 
 interface selectedCoordinates {
   latitude: string;
@@ -40,7 +41,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
       {error && <p>{error}</p>}
       {details && (
         <div
-          className="container border rounded mt-3"
+          className="container border rounded mt-3 mb-3"
           style={{ maxWidth: "700px" }}
         >
           <div className="d-flex justify-content-between mt-5">
@@ -100,6 +101,32 @@ const DetailsCard = ({ cityDetails }: Props) => {
             </li>
           </ul>
         </div>
+      )}
+      {details && (
+        <DailyCard
+          day={"Today"}
+          minTemp={details.daily.temperature_2m_min[0]}
+          maxTemp={details.daily.temperature_2m_max[0]}
+          sunRise={details.daily.sunrise[0]}
+          sunSet={details.daily.sunset[0]}
+          precipitation={details.daily.precipitation_probability_max[0]}
+          uvIndex={details.daily.uv_index_max[0]}
+          wind={details.daily.wind_speed_10m_max[0]}
+          gusts={details.daily.wind_gusts_10m_max[0]}
+        />
+      )}
+      {details && (
+        <DailyCard
+          day={"Tomorrow"}
+          minTemp={details.daily.temperature_2m_min[1]}
+          maxTemp={details.daily.temperature_2m_max[1]}
+          sunRise={details.daily.sunrise[1]}
+          sunSet={details.daily.sunset[1]}
+          precipitation={details.daily.precipitation_probability_max[1]}
+          uvIndex={details.daily.uv_index_max[1]}
+          wind={details.daily.wind_speed_10m_max[1]}
+          gusts={details.daily.wind_gusts_10m_max[1]}
+        />
       )}
     </>
   );
