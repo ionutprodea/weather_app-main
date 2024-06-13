@@ -27,10 +27,13 @@ const DailyCard = ({
     <>
       <div
         className="container border rounded mt-3 mb-3"
-        style={{ maxWidth: "600px" }}
+        style={{
+          maxWidth: "600px",
+          boxShadow: "0px 0px 7px 0px rgba(0,0,0,0.2)",
+        }}
       >
         <div className="d-flex justify-content-between mt-5">
-          <h3 className="fw-normal ms-3">{day}</h3>
+          <h3 className="ms-3 text-secondary">{day}</h3>
         </div>
         <ul className="list-group list-group-flush mt-5">
           <li className="list-group-item">

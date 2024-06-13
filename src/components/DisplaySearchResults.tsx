@@ -23,9 +23,12 @@ const DisplaySearchResults = ({
       {searchResults.length > 0 && (
         <div>
           <div className="d-flex justify-content-center">
-            <h2 className="my-5">Search Results:</h2>
+            <h2 className="my-5 text-secondary">Search Results:</h2>
           </div>
-          <ul className="list-group d-flex flex-row flex-wrap justify-content-evenly">
+          <ul
+            className="list-group d-flex flex-row flex-wrap justify-content-evenly"
+            style={{ maxWidth: "700px" }}
+          >
             {filteredResults.map((city) => (
               <li
                 key={filteredResults.indexOf(city) + city.lat + city.lon}

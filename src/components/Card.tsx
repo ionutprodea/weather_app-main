@@ -1,4 +1,4 @@
-import { IoSunnyOutline } from "react-icons/io5";
+import WeatherIcon from "./WeatherIcon";
 import axios, { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import LocationName from "./LocationName";
@@ -11,6 +11,15 @@ interface Props {
   detailsVisibility: (details: boolean) => void;
 }
 
+interface CurrentWeather {
+  cloud_cover: number;
+  is_day: number;
+  precipitation: number;
+  rain: number;
+  showers: number;
+  snowfall: number;
+}
+
 const Card = ({
   latitude,
   longitude,
@@ -21,6 +30,7 @@ const Card = ({
   const [currentTemp, setCurrentTemp] = useState(null);
   const [error, setError] = useState("");
   const [showDetails, setShowDetails] = useState(false);
+  const [iconWeather, setIconWeather] = useState<CurrentWeather>();
 
   const handleOnClick = () => {
     setShowDetails(true);
@@ -38,6 +48,7 @@ const Card = ({
       .then((result) => {
         console.log(result.data);
         setCurrentTemp(result.data.current.temperature_2m);
+        setIconWeather(result.data.current);
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;
@@ -48,19 +59,32 @@ const Card = ({
 
   return (
     <div className="container" style={{ width: "240px" }}>
-      <div className="card text-center" style={{ height: "300px" }}>
-        <IoSunnyOutline
-          className="card-img-top mt-5"
-          style={{ height: "50px" }}
-        />
+      <div
+        className="card text-center"
+        style={{
+          height: "300px",
+          boxShadow: "0px 0px 7px 0px rgba(0,0,0,0.2)",
+        }}
+      >
+        {iconWeather && (
+          <div className="card-img-top mt-5 text-secondary">
+            <WeatherIcon
+              cloud_cover={iconWeather?.cloud_cover}
+              is_day={iconWeather?.is_day}
+              rain={iconWeather?.rain}
+              showers={iconWeather?.showers}
+              snowfall={iconWeather?.snowfall}
+            />
+          </div>
+        )}
         <div className="card-body d-flex flex-column justify-content-end">
-          <h5 className="card-title">{LocationName(city)}</h5>
+          <h5 className="card-title text-secondary">{LocationName(city)}</h5>
           {error && <p className="card-text">{error}</p>}
           {currentTemp && <p className="card-text">{currentTemp}°C </p>}
           <button
             onClick={handleOnClick}
             type="button"
-            className="btn btn-primary mb-3 px-3"
+            className="btn btn-warning mb-3 px-3"
             data-bs-toggle="button"
           >
             Details

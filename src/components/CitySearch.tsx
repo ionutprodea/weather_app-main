@@ -41,7 +41,7 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
     <>
       <div className="container d-flex  mt-5" style={{ maxWidth: "620px" }}>
         <input
-          className="form-control mb-3"
+          className="form-control mb-3 search-box"
           type="text"
           placeholder="Search city..."
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -49,7 +49,7 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
         <button
           type="submit"
           onClick={handleSearch}
-          className="btn btn-primary ms-3"
+          className="btn btn-warning ms-3"
           style={{ height: "38px" }}
         >
           Search
