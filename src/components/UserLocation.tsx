@@ -55,17 +55,18 @@ const UserLocation = () => {
   return (
     <div className="d-flex justify-content-evenly bg-dark pt-3 pb-1">
       <div>
-        <h2 className="text-light">Logo</h2>
+        <h2 className="text-light ms-2">Logo</h2>
       </div>
       <div className="d-flex justify-content-end">
         <div className="me-2">
           <h2 className="text-light">Your Location</h2>
         </div>
-        <div>
-          <h2 className="text-light">{currentTemp}°C</h2>
-        </div>
+        <h2 className="text-light">{currentTemp}°C</h2>
         {iconWeather && (
-          <div className="text-light">
+          <div
+            className="text-light ms-3 me-2 icon"
+            style={{ lineHeight: "0" }}
+          >
             <WeatherIcon
               cloud_cover={iconWeather?.cloud_cover}
               is_day={iconWeather?.is_day}
