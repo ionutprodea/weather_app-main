@@ -3,6 +3,7 @@ import { City } from "./components/City";
 import CitySearch from "./components/CitySearch";
 import DisplaySearchResults from "./components/DisplaySearchResults";
 import DetailsCard from "./components/DetailsCard";
+import UserLocation from "./components/UserLocation";
 
 function App() {
   const [searchResult, setSearchResult] = useState<City[]>([]);
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <>
+      <UserLocation />
       <div className="container d-flex flex-column align-items-center">
         <CitySearch
           onSearchResults={setSearchResult}
