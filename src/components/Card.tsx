@@ -2,6 +2,7 @@ import WeatherIcon from "./WeatherIcon";
 import axios, { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import LocationName from "./LocationName";
+import { CurrentWeather } from "./CurrentWeather";
 
 interface Props {
   latitude: string;
@@ -9,15 +10,6 @@ interface Props {
   city: string;
   onDetailsClick: (latitude: string, longitude: string, city: string) => void;
   detailsVisibility: (details: boolean) => void;
-}
-
-interface CurrentWeather {
-  cloud_cover: number;
-  is_day: number;
-  precipitation: number;
-  rain: number;
-  showers: number;
-  snowfall: number;
 }
 
 const Card = ({
@@ -55,7 +47,7 @@ const Card = ({
         setError(err.message);
       });
     return () => controller.abort();
-  }, [city]);
+  }, []);
 
   return (
     <div className="container" style={{ width: "240px" }}>
