@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <UserLocation />
+      {/*<UserLocation />*/}
       <div className="container d-flex flex-column align-items-center">
         <CitySearch
           onSearchResults={setSearchResult}
