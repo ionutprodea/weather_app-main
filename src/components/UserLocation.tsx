@@ -9,17 +9,22 @@ interface coords {
 }
 
 const UserLocation = () => {
-  const [userIP, setUserIP] = useState(null);
   const [userCoordinates, setUserCoordinates] = useState<coords>();
   const [currentTemp, setCurrentTemp] = useState(null);
   const [iconWeather, setIconWeather] = useState<CurrentWeather>();
   useEffect(() => {
     const controller = new AbortController();
     axios
-      .get("https://api.ipify.org?format=json", { signal: controller.signal })
+      .get(
+        "https://api.geoapify.com/v1/ipinfo?&apiKey=6d645c5465934074974eeef9d0519e01",
+        { signal: controller.signal }
+      )
       .then((response) => {
-        setUserIP(response.data.ip);
-        console.log(response.data.ip);
+        setUserCoordinates({
+          latitude: response.data.location.latitude,
+          longitude: response.data.location.longitude,
+        });
+        console.log(response.data);
       })
       .catch((err) => {
         if (err instanceof CanceledError) return;
@@ -28,24 +33,7 @@ const UserLocation = () => {
     return () => controller.abort();
   }, []);
   useEffect(() => {
-    const controller = new AbortController();
-    axios
-      .get(`http://ip-api.com/json/${userIP}`, { signal: controller.signal })
-      .then((response) => {
-        console.log(response.data),
-          setUserCoordinates({
-            latitude: response.data.lat,
-            longitude: response.data.lon,
-          });
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        console.log(err);
-      });
-    return () => controller.abort();
-  }, [userIP]);
-  useEffect(() => {
-    if (userIP) {
+    if (userCoordinates) {
       const controller = new AbortController();
       axios
         .get(
