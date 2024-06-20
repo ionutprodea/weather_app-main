@@ -18,3 +18,13 @@ button:hover {
         font-size: 34px;
     }
 }
+
+.your_location {
+    display: none;
+}
+
+@media screen and (min-width: 640px) {
+    .your_location {
+        display: block;
+    }
+}

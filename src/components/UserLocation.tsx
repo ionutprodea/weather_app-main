@@ -2,6 +2,7 @@ import axios, { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import { CurrentWeather } from "./CurrentWeather";
 import WeatherIcon from "./WeatherIcon";
+import Logo from "../images/skycast_logo.png";
 
 interface coords {
   latitude: number;
@@ -54,12 +55,14 @@ const UserLocation = () => {
   }, [userCoordinates]);
   return (
     <div className="d-flex justify-content-evenly bg-dark pt-3 pb-1">
-      <div>
-        <h2 className="text-light ms-2">Logo</h2>
+      <div className="ms-2">
+        <h2>
+          <img src={Logo} alt="skycast logo" style={{ height: "35px" }} />
+        </h2>
       </div>
       <div className="d-flex justify-content-end">
         <div className="me-2">
-          <h2 className="text-light">Your Location</h2>
+          <h2 className="text-light your_location">Your Location</h2>
         </div>
         <h2 className="text-light">{currentTemp}°C</h2>
         {iconWeather && (
