@@ -14,6 +14,13 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
   const showDetails = null;
 
   useEffect(() => {
+    const savedResults = localStorage.getItem("searchResults");
+    if (savedResults) {
+      onSearchResults(JSON.parse(savedResults));
+    }
+  }, [onSearchResults]);
+
+  useEffect(() => {
     if (searchStatus) {
       const controller = new AbortController();
       axios
@@ -23,6 +30,7 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
         )
         .then((response) => {
           console.log(response.data);
+          localStorage.setItem("searchResults", JSON.stringify(response.data));
           onSearchResults(response.data);
         })
         .catch((err) => {
@@ -31,12 +39,14 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
         });
       return () => controller.abort();
     }
-  }, [searchStatus, onSearchResults, searchKey]);
+  }, [searchStatus, onSearchResults, searchKey, searchQuery]);
+
   const handleSearch = () => {
     setSearchKey((prevKey) => prevKey + 1);
     setSearchStatus(true);
     detailsVisibility(showDetails);
   };
+
   return (
     <>
       <div className="container d-flex  mt-5" style={{ maxWidth: "620px" }}>

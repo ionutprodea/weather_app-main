@@ -19,6 +19,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
   const date = new Date();
   const [error, setError] = useState("");
   const [details, setDetails] = useState<any>(null);
+
   useEffect(() => {
     const controller = new AbortController();
     axios
@@ -41,7 +42,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
     <>
       <h2
         className="mt-5 mb-5 px-3 py-2 rounded text-secondary"
-        style={{ boxShadow: "0px 0px 7px 0px rgba(0,0,0,0.2)" }}
+        //style={{ boxShadow: "0px 0px 3px 0px rgba(0,0,0,0.2)" }}
       >
         {LocationName(cityDetails.city)}
       </h2>
@@ -51,7 +52,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
           className="container border rounded mt-3 mb-3"
           style={{
             maxWidth: "600px",
-            boxShadow: "0px 0px 7px 0px rgba(0,0,0,0.2)",
+            boxShadow: "0px 0px 2px 0px rgba(0,0,0,0.2)",
           }}
         >
           <div className="d-flex justify-content-between mt-5">

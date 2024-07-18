@@ -25,6 +25,7 @@ const Card = ({
   const [iconWeather, setIconWeather] = useState<CurrentWeather>();
 
   const handleOnClick = () => {
+    window.localStorage.setItem("searchResults", "");
     setShowDetails(true);
     detailsVisibility(showDetails);
     onDetailsClick(latitude, longitude, city);
