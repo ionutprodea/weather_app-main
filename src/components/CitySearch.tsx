@@ -14,7 +14,7 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
   const showDetails = null;
 
   useEffect(() => {
-    const savedResults = localStorage.getItem("searchResults");
+    const savedResults = sessionStorage.getItem("searchResults");
     if (savedResults) {
       onSearchResults(JSON.parse(savedResults));
     }
@@ -30,7 +30,10 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
         )
         .then((response) => {
           console.log(response.data);
-          localStorage.setItem("searchResults", JSON.stringify(response.data));
+          sessionStorage.setItem(
+            "searchResults",
+            JSON.stringify(response.data)
+          );
           onSearchResults(response.data);
         })
         .catch((err) => {
