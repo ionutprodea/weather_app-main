@@ -39,7 +39,7 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
         });
       return () => controller.abort();
     }
-  }, [searchStatus, onSearchResults, searchKey, searchQuery]);
+  }, [searchStatus, onSearchResults, searchKey]);
 
   const handleSearch = () => {
     setSearchKey((prevKey) => prevKey + 1);
