@@ -4,14 +4,19 @@ import axios, { CanceledError } from "axios";
 
 interface Props {
   onSearchResults: (results: City[]) => void;
-  detailsVisibility: (details: any) => void;
+  detailsLocation: (location: any) => void;
+  detailsVisibility: (details: boolean) => void;
 }
 
-const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
+const CitySearch = ({
+  onSearchResults,
+  detailsLocation,
+  detailsVisibility,
+}: Props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchStatus, setSearchStatus] = useState(false);
   const [searchKey, setSearchKey] = useState(0);
-  const showDetails = null;
+  const showDetails = false;
 
   useEffect(() => {
     const savedResults = sessionStorage.getItem("searchResults");
@@ -47,6 +52,7 @@ const CitySearch = ({ onSearchResults, detailsVisibility }: Props) => {
   const handleSearch = () => {
     setSearchKey((prevKey) => prevKey + 1);
     setSearchStatus(true);
+    detailsLocation(showDetails);
     detailsVisibility(showDetails);
   };
 

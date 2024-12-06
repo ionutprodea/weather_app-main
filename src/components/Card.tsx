@@ -25,7 +25,6 @@ const Card = ({
   const [iconWeather, setIconWeather] = useState<CurrentWeather>();
 
   const handleOnClick = () => {
-    sessionStorage.setItem("searchResults", "");
     //sessionStorage.setItem("detailsToggle", "true");
     setShowDetails(true);
     detailsVisibility(showDetails);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { City } from "./components/City";
 import CitySearch from "./components/CitySearch";
 import DisplaySearchResults from "./components/DisplaySearchResults";
@@ -12,6 +12,7 @@ function App() {
     longitude: string;
     city: string;
   } | null>(null);
+
   const [details, setDetails] = useState(false);
 
   const handleDetailsClick = (
@@ -29,7 +30,8 @@ function App() {
       <div className="container d-flex flex-column align-items-center">
         <CitySearch
           onSearchResults={setSearchResult}
-          detailsVisibility={setSelectedCoordinates}
+          detailsLocation={setSelectedCoordinates}
+          detailsVisibility={setDetails}
         />
         {!details && (
           <DisplaySearchResults
