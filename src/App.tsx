@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { City } from "./components/City";
 import CitySearch from "./components/CitySearch";
 import DisplaySearchResults from "./components/DisplaySearchResults";
