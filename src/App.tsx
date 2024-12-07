@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { City } from "./components/City";
 import CitySearch from "./components/CitySearch";
 import DisplaySearchResults from "./components/DisplaySearchResults";
@@ -14,14 +14,31 @@ function App() {
   } | null>(null);
 
   const [details, setDetails] = useState(false);
+  useEffect(() => {
+    const savedCoordinates = sessionStorage.getItem("savedCoordinates");
+    if (savedCoordinates) {
+      setSelectedCoordinates(JSON.parse(savedCoordinates));
+    }
+    const toggleDetails = sessionStorage.getItem("toggleDetails");
+    if (toggleDetails) {
+      setDetails(JSON.parse(toggleDetails));
+    }
+  }, []);
 
   const handleDetailsClick = (
     latitude: string,
     longitude: string,
     city: string
   ) => {
-    setSelectedCoordinates({ latitude, longitude, city });
     setSearchResult([]);
+    setSelectedCoordinates({ latitude, longitude, city });
+    const savedCoordinates = { latitude, longitude, city };
+    const toggleDetails = true;
+    sessionStorage.setItem(
+      "savedCoordinates",
+      JSON.stringify(savedCoordinates)
+    );
+    sessionStorage.setItem("toggleDetails", JSON.stringify(toggleDetails));
   };
 
   return (

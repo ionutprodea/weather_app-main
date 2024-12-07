@@ -54,6 +54,8 @@ const CitySearch = ({
     setSearchStatus(true);
     detailsLocation(showDetails);
     detailsVisibility(showDetails);
+    sessionStorage.setItem("toggleDetails", "");
+    sessionStorage.setItem("savedCoordinates", "");
   };
 
   return (
