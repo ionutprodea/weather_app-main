@@ -13,6 +13,15 @@ button:hover {
     font-size: 30px;
 }
 
+.text {
+    text-indent: 2rem;
+    text-align: justify;
+}
+
+.link {
+    text-decoration: none;
+}
+
 @media screen and (min-width: 769px) {
     .icon {
         font-size: 34px;

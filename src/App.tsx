@@ -4,6 +4,7 @@ import CitySearch from "./components/CitySearch";
 import DisplaySearchResults from "./components/DisplaySearchResults";
 import DetailsCard from "./components/DetailsCard";
 import UserLocation from "./components/UserLocation";
+import { Link } from "react-router-dom";
 
 function App() {
   const [searchResult, setSearchResult] = useState<City[]>([]);
@@ -60,6 +61,9 @@ function App() {
         {selectedCoordinates && (
           <DetailsCard cityDetails={selectedCoordinates}></DetailsCard>
         )}
+      </div>
+      <div className="container d-flex flex-column align-items-center align-self-end">
+        <Link to={"/about"}>About</Link>
       </div>
     </>
   );
