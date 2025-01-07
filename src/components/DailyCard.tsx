@@ -33,7 +33,7 @@ const DailyCard = ({
         }}
       >
         <div className="d-flex justify-content-between mt-5">
-          <h3 className="ms-3 text-secondary">{day}</h3>
+          <h3 className="ms-3 text-dark">{day}</h3>
         </div>
         <ul className="list-group list-group-flush mt-5">
           <li className="list-group-item">

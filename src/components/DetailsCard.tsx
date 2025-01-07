@@ -41,7 +41,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
   return (
     <>
       <h2
-        className="mt-5 mb-5 px-3 py-2 rounded text-secondary"
+        className="mt-5 mb-5 px-3 py-2 rounded text-dark"
         //style={{ boxShadow: "0px 0px 3px 0px rgba(0,0,0,0.2)" }}
       >
         {LocationName(cityDetails.city)}
@@ -56,8 +56,8 @@ const DetailsCard = ({ cityDetails }: Props) => {
           }}
         >
           <div className="d-flex justify-content-between mt-5">
-            <h3 className="ms-3 text-secondary">Current</h3>
-            <h3 className="me-3 text-secondary">
+            <h3 className="ms-3 text-dark">Current</h3>
+            <h3 className="me-3 text-dark">
               {details.current.temperature_2m}°C
             </h3>
           </div>

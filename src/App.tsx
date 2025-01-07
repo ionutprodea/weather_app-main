@@ -44,26 +44,32 @@ function App() {
 
   return (
     <>
-      <UserLocation />
-      <div className="container d-flex flex-column align-items-center">
-        <CitySearch
-          onSearchResults={setSearchResult}
-          detailsLocation={setSelectedCoordinates}
-          detailsVisibility={setDetails}
-        />
-        {!details && (
-          <DisplaySearchResults
-            searchResults={searchResult}
-            onDetailsClick={handleDetailsClick}
-            detailsVisibility={setDetails}
-          />
-        )}
-        {selectedCoordinates && (
-          <DetailsCard cityDetails={selectedCoordinates}></DetailsCard>
-        )}
-      </div>
-      <div className="container d-flex flex-column align-items-center align-self-end">
-        <Link to={"/about"}>About</Link>
+      <div className="content d-flex flex-column justify-content-between">
+        <div>
+          <UserLocation />
+          <div className="d-flex flex-column align-items-center">
+            <CitySearch
+              onSearchResults={setSearchResult}
+              detailsLocation={setSelectedCoordinates}
+              detailsVisibility={setDetails}
+            />
+            {!details && (
+              <DisplaySearchResults
+                searchResults={searchResult}
+                onDetailsClick={handleDetailsClick}
+                detailsVisibility={setDetails}
+              />
+            )}
+            {selectedCoordinates && (
+              <DetailsCard cityDetails={selectedCoordinates}></DetailsCard>
+            )}
+          </div>
+        </div>
+        <div className="d-flex flex-column align-items-center bg-dark py-2 mt-3">
+          <Link to={"/about"} className="link">
+            <h4 className="text-light">About</h4>
+          </Link>
+        </div>
       </div>
     </>
   );
