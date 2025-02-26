@@ -55,6 +55,7 @@ const UserLocation = () => {
   }, [userCoordinates]);
   return (
     <div className="d-flex justify-content-evenly bg-dark pt-3 pb-1">
+      <h1 className="d-none">Weather Forecast</h1>
       <div className="ms-2">
         <h2>
           <img src={Logo} alt="skycast logo" style={{ height: "35px" }} />

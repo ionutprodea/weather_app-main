@@ -5,6 +5,7 @@ import DisplaySearchResults from "./components/DisplaySearchResults";
 import DetailsCard from "./components/DetailsCard";
 import UserLocation from "./components/UserLocation";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function App() {
   const [searchResult, setSearchResult] = useState<City[]>([]);
@@ -44,6 +45,17 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <title>SkyCast Weather Forecast</title>
+        <meta
+          name="description"
+          content="Weather forecast for locations around the globe. Simple and easy to use."
+        />
+        <meta
+          name="keywords"
+          content="Weather, Accurate Forecast, Meteorological Data, Hourly and Daily Weather, UV Index, Precipitation Possibility"
+        />
+      </Helmet>
       <div className="content d-flex flex-column justify-content-between">
         <div>
           <UserLocation />

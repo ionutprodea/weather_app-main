@@ -3,6 +3,7 @@ import UserLocation from "./UserLocation";
 import geoapify_logo from "../images/geoapify_logo.png";
 import locationiq_logo from "../images/locationiq_logo.png";
 import openmeteo_logo from "../images/openmeteo_logo.png";
+import { Helmet } from "react-helmet";
 
 const handelClick = () => {
   sessionStorage.setItem("toggleDetails", "");
@@ -13,6 +14,17 @@ const handelClick = () => {
 const About = () => {
   return (
     <>
+      <Helmet>
+        <title>About SkyCast</title>
+        <meta
+          name="description"
+          content="All you need to know about SkyCast weather forecasting application. How it works and services we use."
+        />
+        <meta
+          name="keywords"
+          content="About SkyCast, Reliable Weather Forecasts, Real-time Weather, Accurate Weather Tracking, Meteorological Data"
+        />
+      </Helmet>
       <div className="content d-flex flex-column justify-content-between">
         <div>
           <UserLocation />
