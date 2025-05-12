@@ -28,7 +28,7 @@ const DailyCard = ({
       <div
         className="container border rounded mt-3 mb-3"
         style={{
-          maxWidth: "600px",
+          maxWidth: "320px",
           boxShadow: "0px 0px 2px 0px rgba(0,0,0,0.2)",
         }}
       >
