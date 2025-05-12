@@ -3,13 +3,31 @@ import { useEffect, useState } from "react";
 import { CurrentWeather } from "./CurrentWeather";
 import WeatherIcon from "./WeatherIcon";
 import Logo from "../images/skycast_logo.png";
+import { Link } from "react-router-dom";
 
 interface coords {
   latitude: number;
   longitude: number;
 }
 
-const UserLocation = () => {
+interface Props {
+  detailsVisibility: (details: boolean) => void;
+  selectedCoordinates: (display: null) => void;
+  searchResults: (arr: []) => void;
+}
+
+const UserLocation = ({
+  detailsVisibility,
+  selectedCoordinates,
+  searchResults,
+}: Props) => {
+  const handleClick = () => {
+    detailsVisibility(false);
+    selectedCoordinates(null);
+    searchResults([]);
+    sessionStorage.setItem("savedCoordinates", "");
+    sessionStorage.setItem("searchResults", "");
+  };
   const [userCoordinates, setUserCoordinates] = useState<coords>();
   const [currentTemp, setCurrentTemp] = useState(null);
   const [iconWeather, setIconWeather] = useState<CurrentWeather>();
@@ -58,7 +76,14 @@ const UserLocation = () => {
       <h1 className="d-none">Weather Forecast</h1>
       <div className="ms-2">
         <h2>
-          <img src={Logo} alt="skycast logo" style={{ height: "35px" }} />
+          <Link to={"/"} onClick={handleClick}>
+            <img
+              src={Logo}
+              alt="skycast logo"
+              style={{ height: "35px" }}
+              className="logo"
+            />
+          </Link>
         </h2>
       </div>
       <div className="d-flex justify-content-end">

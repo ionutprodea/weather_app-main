@@ -58,7 +58,11 @@ function App() {
       </Helmet>
       <div className="content d-flex flex-column justify-content-between">
         <div>
-          <UserLocation />
+          <UserLocation
+            detailsVisibility={setDetails}
+            selectedCoordinates={setSelectedCoordinates}
+            searchResults={setSearchResult}
+          />
           <div className="d-flex flex-column align-items-center">
             <CitySearch
               onSearchResults={setSearchResult}

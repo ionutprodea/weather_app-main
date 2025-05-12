@@ -41,3 +41,11 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.logo {
+    transition: ease-in-out 0.7s;
+}
+
+.logo:hover {
+    filter: brightness(0.6);
+}
