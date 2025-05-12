@@ -60,7 +60,7 @@ const Card = ({
       >
         {iconWeather && (
           <div
-            className="card-img-top mt-5 text-secondary"
+            className="card-img-top mt-5 text-dark"
             style={{ fontSize: "50px", lineHeight: "0" }}
           >
             <WeatherIcon
@@ -73,7 +73,7 @@ const Card = ({
           </div>
         )}
         <div className="card-body d-flex flex-column justify-content-end">
-          <h5 className="card-title text-secondary">{LocationName(city)}</h5>
+          <h5 className="card-title text-dark">{LocationName(city)}</h5>
           {error && <p className="card-text">{error}</p>}
           {currentTemp && <p className="card-text">{currentTemp}°C </p>}
           <button
