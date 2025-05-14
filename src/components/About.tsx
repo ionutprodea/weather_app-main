@@ -5,13 +5,12 @@ import locationiq_logo from "../images/locationiq_logo.png";
 import openmeteo_logo from "../images/openmeteo_logo.png";
 import { Helmet } from "react-helmet";
 
-const handelClick = () => {
-  sessionStorage.setItem("toggleDetails", "");
-  sessionStorage.setItem("savedCoordinates", "");
-  sessionStorage.setItem("searchResults", "");
-};
-
 const About = () => {
+  const handelClick = () => {
+    sessionStorage.setItem("toggleDetails", "");
+    sessionStorage.setItem("savedCoordinates", "");
+    sessionStorage.setItem("searchResults", "");
+  };
   return (
     <>
       <Helmet>
@@ -27,7 +26,11 @@ const About = () => {
       </Helmet>
       <div className="content d-flex flex-column justify-content-between">
         <div>
-          <UserLocation />
+          <UserLocation
+            detailsVisibility={() => {}}
+            selectedCoordinates={() => {}}
+            searchResults={() => {}}
+          />
           <div
             className="container d-flex flex-column align-items-center mt-5"
             style={{ maxWidth: "620px" }}
