@@ -55,7 +55,8 @@ const Card = ({
         className="card text-center"
         style={{
           height: "300px",
-          boxShadow: "0px 0px 2px 0px rgba(0,0,0,0.2)",
+          boxShadow: "0px 0px 2px 1px rgba(0, 0, 0, 0.1)",
+          background: "rgba(255,255,255,0.5)",
         }}
       >
         {iconWeather && (
@@ -79,7 +80,7 @@ const Card = ({
           <button
             onClick={handleOnClick}
             type="button"
-            className="btn btn-warning mb-3 px-3"
+            className="btn btn-dark mb-3 px-3"
             data-bs-toggle="button"
           >
             Details

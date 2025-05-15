@@ -1,3 +1,14 @@
+body {
+    background-color: #FFFFFF;
+    background-image: url("/src/images/sun-tornado.svg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+li {
+    background: none !important;
+}
+
 .content {
     min-height: 100vh;
 }

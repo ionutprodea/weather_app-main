@@ -40,10 +40,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
 
   return (
     <>
-      <h2
-        className="mt-5 mb-5 px-3 py-2 rounded text-dark"
-        //style={{ boxShadow: "0px 0px 3px 0px rgba(0,0,0,0.2)" }}
-      >
+      <h2 className="mt-5 mb-5 px-3 py-2 rounded text-dark">
         {LocationName(cityDetails.city)}
       </h2>
       {error && <p>{error}</p>}
@@ -54,6 +51,7 @@ const DetailsCard = ({ cityDetails }: Props) => {
             style={{
               width: "320px",
               boxShadow: "0px 0px 2px 0px rgba(0,0,0,0.2)",
+              background: "rgba(255,255,255,0.5)",
             }}
           >
             <div className="d-flex justify-content-between mt-5">
