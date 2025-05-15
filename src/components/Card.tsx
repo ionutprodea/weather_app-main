@@ -60,10 +60,7 @@ const Card = ({
         }}
       >
         {iconWeather && (
-          <div
-            className="card-img-top mt-5 text-dark"
-            style={{ fontSize: "50px", lineHeight: "0" }}
-          >
+          <div className="card-img-top mt-4 text-dark">
             <WeatherIcon
               cloud_cover={iconWeather?.cloud_cover}
               is_day={iconWeather?.is_day}

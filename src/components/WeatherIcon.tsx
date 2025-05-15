@@ -1,11 +1,10 @@
-import {
-  IoSunnyOutline,
-  IoPartlySunnyOutline,
-  IoCloudyOutline,
-  IoRainyOutline,
-  IoSnowOutline,
-  IoMoonOutline,
-} from "react-icons/io5";
+import rainIcon from "../images/icons/rain.webp";
+import snowIcon from "../images/icons/snow.webp";
+import sunnyIcon from "../images/icons/sunny.webp";
+import partSunnyIcon from "../images/icons/part-sunny.webp";
+import cloudyIcon from "../images/icons/cloudy.webp";
+import moonIcon from "../images/icons/moon.webp";
+import partMoonIcon from "../images/icons/part-moon.webp";
 
 interface Props {
   cloud_cover: number;
@@ -22,20 +21,24 @@ const WeatherIcon = ({
   showers,
   snowfall,
 }: Props) => {
+  let imagePath = "";
   if (is_day) {
-    if (rain || showers) return <IoRainyOutline />;
-    if (snowfall) return <IoSnowOutline />;
-    if (cloud_cover < 20) return <IoSunnyOutline />;
-    if (cloud_cover < 65) return <IoPartlySunnyOutline />;
-    return <IoCloudyOutline />;
+    if (rain || showers) imagePath = rainIcon;
+    else if (snowfall) imagePath = snowIcon;
+    else if (cloud_cover < 35) imagePath = sunnyIcon;
+    else if (cloud_cover < 89) imagePath = partSunnyIcon;
+    else imagePath = cloudyIcon;
   }
 
   if (!is_day) {
-    if (rain || showers) return <IoRainyOutline />;
-    if (snowfall) return <IoSnowOutline />;
-    if (cloud_cover < 40) return <IoMoonOutline />;
-    return <IoCloudyOutline />;
+    if (rain || showers) imagePath = rainIcon;
+    else if (snowfall) imagePath = snowIcon;
+    else if (cloud_cover < 35) imagePath = moonIcon;
+    else if (cloud_cover < 89) imagePath = partMoonIcon;
+    else imagePath = cloudyIcon;
   }
+
+  return <img src={imagePath} alt="weather icon" />;
 };
 
 export default WeatherIcon;

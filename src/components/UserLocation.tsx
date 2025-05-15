@@ -90,21 +90,20 @@ const UserLocation = ({
         <div className="me-2">
           <h2 className="text-light your_location">Your Location</h2>
         </div>
-        <h2 className="text-light">{currentTemp}°C</h2>
-        {iconWeather && (
-          <div
-            className="text-light ms-3 me-2 icon"
-            style={{ lineHeight: "0" }}
-          >
-            <WeatherIcon
-              cloud_cover={iconWeather?.cloud_cover}
-              is_day={iconWeather?.is_day}
-              rain={iconWeather?.rain}
-              showers={iconWeather?.showers}
-              snowfall={iconWeather?.snowfall}
-            />
-          </div>
-        )}
+        <div className="d-flex">
+          <h2 className="text-light">{currentTemp}°C</h2>
+          {iconWeather && (
+            <div style={{ marginTop: "-22px", marginLeft: "10px" }}>
+              <WeatherIcon
+                cloud_cover={iconWeather?.cloud_cover}
+                is_day={iconWeather?.is_day}
+                rain={iconWeather?.rain}
+                showers={iconWeather?.showers}
+                snowfall={iconWeather?.snowfall}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
