@@ -35,14 +35,22 @@ const About = () => {
             className="container d-flex flex-column align-items-center mt-5"
             style={{ maxWidth: "620px" }}
           >
-            <h1 className="text-dark mt-5">About Skycast</h1>
+            <h1 className="text-dark mt-5 mb-4">About Skycast</h1>
             <p className="mt-5 text mx-1">
               Skycast was created as part of my web development portfolio. It
               provides accurate meteorological data using Open-Meteo APIs and
-              location services provided by LocationIQ and Geoapify. Please note
-              that the APIs are on free usage plans, which means the app has a
-              limited number of queries each month. Once this limit is reached,
-              new queries cannot be processed until the counter resets.
+              location services provided by LocationIQ and Geoapify. SkyCast is
+              intended to function as a single-page application (SPA). It uses
+              internal state changes to navigate between views, meaning that
+              pressing the browser’s back button won’t take you to a previous
+              "page" as in a traditional multi-page site. The only standalone
+              page is the About page.
+            </p>
+            <p className="mt-2 text mx-1">
+              {" "}
+              Please note that the APIs are on free usage plans, which means the
+              app has a limited number of queries each month. Once this limit is
+              reached, new queries cannot be processed until the counter resets.
               Apologies for any inconvenience this may cause and appreciate your
               understanding. If you like this app and would like to know more
               about its creator,{" "}
