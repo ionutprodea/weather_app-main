@@ -4,6 +4,7 @@ import { detailsRequest } from "./DetailsRequest";
 import LocationName from "./LocationName";
 import DailyCard from "./DailyCard";
 import { DayName } from "./DayName";
+import { dailyProps } from "./DailyProps";
 
 interface selectedCoordinates {
   latitude: string;
@@ -112,116 +113,36 @@ const DetailsCard = ({ cityDetails }: Props) => {
             </ul>
           </div>
         )}
-        {details && (
-          <DailyCard
-            day={"Today"}
-            minTemp={details.daily.temperature_2m_min[0]}
-            maxTemp={details.daily.temperature_2m_max[0]}
-            sunRise={details.daily.sunrise[0]}
-            sunSet={details.daily.sunset[0]}
-            precipitation={details.daily.precipitation_probability_max[0]}
-            uvIndex={details.daily.uv_index_max[0]}
-            wind={details.daily.wind_speed_10m_max[0]}
-            gusts={details.daily.wind_gusts_10m_max[0]}
-            rain={details.daily.rain_sum[0]}
-            cloud_cover={details.daily.cloud_cover_mean[0]}
-            snow={details.daily.snowfall_sum[0]}
-          />
-        )}
-        {details && (
-          <DailyCard
-            day={"Tomorrow"}
-            minTemp={details.daily.temperature_2m_min[1]}
-            maxTemp={details.daily.temperature_2m_max[1]}
-            sunRise={details.daily.sunrise[1]}
-            sunSet={details.daily.sunset[1]}
-            precipitation={details.daily.precipitation_probability_max[1]}
-            uvIndex={details.daily.uv_index_max[1]}
-            wind={details.daily.wind_speed_10m_max[1]}
-            gusts={details.daily.wind_gusts_10m_max[1]}
-            rain={details.daily.rain_sum[1]}
-            cloud_cover={details.daily.cloud_cover_mean[1]}
-            snow={details.daily.snowfall_sum[1]}
-          />
-        )}
+        {details && <DailyCard day={"Today"} {...dailyProps(details, 0)} />}
+        {details && <DailyCard day={"Tomorrow"} {...dailyProps(details, 1)} />}
         {details && (
           <DailyCard
             day={DayName(date.getDay() + 2)}
-            minTemp={details.daily.temperature_2m_min[2]}
-            maxTemp={details.daily.temperature_2m_max[2]}
-            sunRise={details.daily.sunrise[2]}
-            sunSet={details.daily.sunset[2]}
-            precipitation={details.daily.precipitation_probability_max[2]}
-            uvIndex={details.daily.uv_index_max[2]}
-            wind={details.daily.wind_speed_10m_max[2]}
-            gusts={details.daily.wind_gusts_10m_max[2]}
-            rain={details.daily.rain_sum[2]}
-            cloud_cover={details.daily.cloud_cover_mean[2]}
-            snow={details.daily.snowfall_sum[2]}
+            {...dailyProps(details, 2)}
           />
         )}
         {details && (
           <DailyCard
             day={DayName(date.getDay() + 3)}
-            minTemp={details.daily.temperature_2m_min[3]}
-            maxTemp={details.daily.temperature_2m_max[3]}
-            sunRise={details.daily.sunrise[3]}
-            sunSet={details.daily.sunset[3]}
-            precipitation={details.daily.precipitation_probability_max[3]}
-            uvIndex={details.daily.uv_index_max[3]}
-            wind={details.daily.wind_speed_10m_max[3]}
-            gusts={details.daily.wind_gusts_10m_max[3]}
-            rain={details.daily.rain_sum[3]}
-            cloud_cover={details.daily.cloud_cover_mean[3]}
-            snow={details.daily.snowfall_sum[3]}
+            {...dailyProps(details, 3)}
           />
         )}
         {details && (
           <DailyCard
             day={DayName(date.getDay() + 4)}
-            minTemp={details.daily.temperature_2m_min[4]}
-            maxTemp={details.daily.temperature_2m_max[4]}
-            sunRise={details.daily.sunrise[4]}
-            sunSet={details.daily.sunset[4]}
-            precipitation={details.daily.precipitation_probability_max[4]}
-            uvIndex={details.daily.uv_index_max[4]}
-            wind={details.daily.wind_speed_10m_max[4]}
-            gusts={details.daily.wind_gusts_10m_max[4]}
-            rain={details.daily.rain_sum[4]}
-            cloud_cover={details.daily.cloud_cover_mean[4]}
-            snow={details.daily.snowfall_sum[4]}
+            {...dailyProps(details, 4)}
           />
         )}
         {details && (
           <DailyCard
             day={DayName(date.getDay() + 5)}
-            minTemp={details.daily.temperature_2m_min[5]}
-            maxTemp={details.daily.temperature_2m_max[5]}
-            sunRise={details.daily.sunrise[5]}
-            sunSet={details.daily.sunset[5]}
-            precipitation={details.daily.precipitation_probability_max[5]}
-            uvIndex={details.daily.uv_index_max[5]}
-            wind={details.daily.wind_speed_10m_max[5]}
-            gusts={details.daily.wind_gusts_10m_max[5]}
-            rain={details.daily.rain_sum[5]}
-            cloud_cover={details.daily.cloud_cover_mean[5]}
-            snow={details.daily.snowfall_sum[5]}
+            {...dailyProps(details, 5)}
           />
         )}
         {details && (
           <DailyCard
             day={DayName(date.getDay() + 6)}
-            minTemp={details.daily.temperature_2m_min[6]}
-            maxTemp={details.daily.temperature_2m_max[6]}
-            sunRise={details.daily.sunrise[6]}
-            sunSet={details.daily.sunset[6]}
-            precipitation={details.daily.precipitation_probability_max[6]}
-            uvIndex={details.daily.uv_index_max[6]}
-            wind={details.daily.wind_speed_10m_max[6]}
-            gusts={details.daily.wind_gusts_10m_max[6]}
-            rain={details.daily.rain_sum[6]}
-            cloud_cover={details.daily.cloud_cover_mean[6]}
-            snow={details.daily.snowfall_sum[6]}
+            {...dailyProps(details, 6)}
           />
         )}
       </div>
