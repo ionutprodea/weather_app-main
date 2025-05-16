@@ -1,4 +1,5 @@
 import { SunTime } from "./SunTime";
+import WeatherIcon from "./WeatherIcon";
 
 interface Props {
   day: string;
@@ -10,6 +11,9 @@ interface Props {
   uvIndex: number;
   wind: number;
   gusts: number;
+  rain: number;
+  cloud_cover: number;
+  snow: number;
 }
 
 const DailyCard = ({
@@ -22,6 +26,9 @@ const DailyCard = ({
   uvIndex,
   wind,
   gusts,
+  rain,
+  cloud_cover,
+  snow,
 }: Props) => {
   return (
     <>
@@ -34,6 +41,13 @@ const DailyCard = ({
       >
         <div className="d-flex justify-content-between mt-5">
           <h3 className="ms-3 text-dark">{day}</h3>
+          <WeatherIcon
+            cloud_cover={cloud_cover}
+            is_day={1}
+            rain={Math.floor(rain)}
+            showers={Math.floor(rain)}
+            snowfall={Math.floor(snow)}
+          />
         </div>
         <ul className="list-group list-group-flush mt-5">
           <li className="list-group-item">

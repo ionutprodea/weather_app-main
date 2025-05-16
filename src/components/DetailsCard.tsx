@@ -123,6 +123,9 @@ const DetailsCard = ({ cityDetails }: Props) => {
             uvIndex={details.daily.uv_index_max[0]}
             wind={details.daily.wind_speed_10m_max[0]}
             gusts={details.daily.wind_gusts_10m_max[0]}
+            rain={details.daily.rain_sum[0]}
+            cloud_cover={details.daily.cloud_cover_mean[0]}
+            snow={details.daily.snowfall_sum[0]}
           />
         )}
         {details && (
@@ -136,6 +139,9 @@ const DetailsCard = ({ cityDetails }: Props) => {
             uvIndex={details.daily.uv_index_max[1]}
             wind={details.daily.wind_speed_10m_max[1]}
             gusts={details.daily.wind_gusts_10m_max[1]}
+            rain={details.daily.rain_sum[1]}
+            cloud_cover={details.daily.cloud_cover_mean[1]}
+            snow={details.daily.snowfall_sum[1]}
           />
         )}
         {details && (
@@ -149,6 +155,9 @@ const DetailsCard = ({ cityDetails }: Props) => {
             uvIndex={details.daily.uv_index_max[2]}
             wind={details.daily.wind_speed_10m_max[2]}
             gusts={details.daily.wind_gusts_10m_max[2]}
+            rain={details.daily.rain_sum[2]}
+            cloud_cover={details.daily.cloud_cover_mean[2]}
+            snow={details.daily.snowfall_sum[2]}
           />
         )}
         {details && (
@@ -162,6 +171,9 @@ const DetailsCard = ({ cityDetails }: Props) => {
             uvIndex={details.daily.uv_index_max[3]}
             wind={details.daily.wind_speed_10m_max[3]}
             gusts={details.daily.wind_gusts_10m_max[3]}
+            rain={details.daily.rain_sum[3]}
+            cloud_cover={details.daily.cloud_cover_mean[3]}
+            snow={details.daily.snowfall_sum[3]}
           />
         )}
         {details && (
@@ -172,9 +184,12 @@ const DetailsCard = ({ cityDetails }: Props) => {
             sunRise={details.daily.sunrise[4]}
             sunSet={details.daily.sunset[4]}
             precipitation={details.daily.precipitation_probability_max[4]}
-            uvIndex={details.daily.uv_index_max[3]}
-            wind={details.daily.wind_speed_10m_max[3]}
-            gusts={details.daily.wind_gusts_10m_max[3]}
+            uvIndex={details.daily.uv_index_max[4]}
+            wind={details.daily.wind_speed_10m_max[4]}
+            gusts={details.daily.wind_gusts_10m_max[4]}
+            rain={details.daily.rain_sum[4]}
+            cloud_cover={details.daily.cloud_cover_mean[4]}
+            snow={details.daily.snowfall_sum[4]}
           />
         )}
         {details && (
@@ -188,6 +203,9 @@ const DetailsCard = ({ cityDetails }: Props) => {
             uvIndex={details.daily.uv_index_max[5]}
             wind={details.daily.wind_speed_10m_max[5]}
             gusts={details.daily.wind_gusts_10m_max[5]}
+            rain={details.daily.rain_sum[5]}
+            cloud_cover={details.daily.cloud_cover_mean[5]}
+            snow={details.daily.snowfall_sum[5]}
           />
         )}
         {details && (
@@ -201,6 +219,9 @@ const DetailsCard = ({ cityDetails }: Props) => {
             uvIndex={details.daily.uv_index_max[6]}
             wind={details.daily.wind_speed_10m_max[6]}
             gusts={details.daily.wind_gusts_10m_max[6]}
+            rain={details.daily.rain_sum[6]}
+            cloud_cover={details.daily.cloud_cover_mean[6]}
+            snow={details.daily.snowfall_sum[6]}
           />
         )}
       </div>
