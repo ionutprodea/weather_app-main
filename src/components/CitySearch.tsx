@@ -40,6 +40,7 @@ const CitySearch = ({
             JSON.stringify(response.data)
           );
           onSearchResults(response.data);
+          setSearchQuery("");
         })
         .catch((err) => {
           if (err instanceof CanceledError) return;
@@ -72,6 +73,7 @@ const CitySearch = ({
             className="form-control mb-3 search-box"
             type="text"
             placeholder="Search city..."
+            value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button
