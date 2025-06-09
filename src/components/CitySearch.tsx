@@ -60,21 +60,28 @@ const CitySearch = ({
 
   return (
     <>
-      <div className="container d-flex  mt-5" style={{ maxWidth: "620px" }}>
-        <input
-          className="form-control mb-3 search-box"
-          type="text"
-          placeholder="Search city..."
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={handleSearch}
-          className="btn btn-warning ms-3"
-          style={{ height: "38px" }}
+      <div className="container d-flex mt-5" style={{ maxWidth: "620px" }}>
+        <form
+          className="d-flex w-100"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSearch();
+          }}
         >
-          Search
-        </button>
+          <input
+            className="form-control mb-3 search-box"
+            type="text"
+            placeholder="Search city..."
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button
+            type="submit"
+            className="btn btn-warning ms-3"
+            style={{ height: "38px" }}
+          >
+            Search
+          </button>
+        </form>
       </div>
     </>
   );
